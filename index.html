@@ -12,7 +12,31 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
 
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.clientHeight;
+
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
   <body>
     <!-- Navbar -->
 
@@ -71,17 +95,19 @@
           </div>
 
           <div class="col-lg-6">
-            <h1>Alex Johnson</h1>
+            <h1>N Eswara Prasad</h1>
 
             <h3 class="designation">Full Stack Developer</h3>
 
-            <p>
-              Passionate Computer Science student and web developer focused on
-              creating responsive, user-friendly and innovative web
-              applications.
+            <p class="lead">
+              Hello! I'm a passionate developer and technology enthusiast who
+              enjoys building responsive web applications and exploring new
+              technologies. I love solving problems, creating user-friendly
+              digital experiences, and continuously improving my skills in web
+              development and software engineering.
             </p>
 
-            <a href="resume.pdf" class="btn btn-custom"> Download Resume </a>
+            <a href="RESUME.pdf" class="btn btn-custom"> Download Resume </a>
           </div>
         </div>
       </div>
@@ -89,47 +115,75 @@
 
     <!-- About -->
 
-    <section id="about">
+    <!-- About -->
+
+    <section id="about" class="hidden-section">
       <div class="container">
         <h2 class="section-title">About Me</h2>
 
-        <div class="card p-4">
-          <h4>Educational Details</h4>
+        <div class="row g-4">
+          <!-- Education -->
 
-          <p>B.Tech Computer Science Engineering XYZ Institute of Technology</p>
+          <div class="col-lg-4">
+            <div class="card about-card h-100">
+              <div class="card-body">
+                <h3>🎓 Education</h3>
 
-          <hr />
+                <p class="mt-3">
+                  Bachelor of Technology in Computer Science Engineering
+                </p>
 
-          <h4>Career Objective</h4>
+                <p>CVR College Of Engineering</p>
 
-          <p>
-            To secure a challenging position in software development where I can
-            apply my technical skills and continuously learn emerging
-            technologies.
-          </p>
+                <p>2023 - 2027</p>
+              </div>
+            </div>
+          </div>
 
-          <hr />
+          <!-- Career Objective -->
 
-          <h4>Personal Interests</h4>
+          <div class="col-lg-4">
+            <div class="card about-card h-100">
+              <div class="card-body">
+                <h3>🚀 Career Goal</h3>
 
-          <ul>
-            <li>Web Development</li>
+                <p class="mt-3">
+                  To build innovative software solutions, continuously improve
+                  my technical expertise, and contribute to impactful projects
+                  while growing as a software engineer.
+                </p>
+              </div>
+            </div>
+          </div>
 
-            <li>Artificial Intelligence</li>
+          <!-- Interests -->
 
-            <li>Open Source Projects</li>
+          <div class="col-lg-4">
+            <div class="card about-card h-100">
+              <div class="card-body">
+                <h3>💡 Interests</h3>
 
-            <li>UI/UX Design</li>
+                <ul class="mt-3">
+                  <li>Web Development</li>
 
-            <li>Photography</li>
-          </ul>
+                  <li>Artificial Intelligence</li>
+
+                  <li>UI/UX Design</li>
+
+                  <li>Open Source</li>
+
+                  <li>Drawing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Skills -->
 
-    <section id="skills">
+    <section id="skills" class="hidden-section">
       <div class="container">
         <h2 class="section-title">Skills</h2>
 
@@ -197,7 +251,7 @@
 
     <!-- Projects -->
 
-    <section id="projects">
+    <section id="projects" class="hidden-section">
       <div class="container">
         <h2 class="section-title">Projects</h2>
 
@@ -228,27 +282,69 @@
 
     <!-- Achievements -->
 
-    <section id="achievements">
+    <section id="achievements" class="hidden-section">
       <div class="container">
         <h2 class="section-title">Achievements</h2>
 
-        <div class="card p-4">
-          <ul>
-            <li>🏆 Winner - College Coding Contest</li>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="achievement-card">
+              <div class="achievement-icon">🏆</div>
 
-            <li>📜 Certified in Web Development</li>
+              <h4>College Coding Contest</h4>
 
-            <li>💡 Hackathon Participant</li>
+              <p>
+                Secured first place by solving complex programming challenges
+                and demonstrating strong problem-solving skills.
+              </p>
+            </div>
+          </div>
 
-            <li>🎯 Top Performer in Academic Projects</li>
-          </ul>
+          <div class="col-md-6">
+            <div class="achievement-card">
+              <div class="achievement-icon">📜</div>
+
+              <h4>Web Development Certification</h4>
+
+              <p>
+                Successfully completed professional training in modern web
+                development technologies.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="achievement-card">
+              <div class="achievement-icon">💡</div>
+
+              <h4>Hackathon Participant</h4>
+
+              <p>
+                Collaborated with a team to design and develop innovative
+                project solutions under time constraints.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="achievement-card">
+              <div class="achievement-icon">🎯</div>
+
+              <h4>Academic Excellence</h4>
+
+              <p>
+                Consistently delivered high-quality academic projects and
+                maintained strong academic performance.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
 
-    <section id="contact">
+    <section id="contact" class="hidden-section">
       <div class="container">
         <h2 class="section-title">Contact Me</h2>
 
@@ -281,9 +377,9 @@
             <div class="card p-4">
               <h4>Contact Information</h4>
 
-              <p>Email: alex@example.com</p>
+              <p>Email: n.eswaraprasadvarma@gmail.com</p>
 
-              <p>Phone: +91 9876543210</p>
+              <p>Phone: +91 6304722608</p>
 
               <p>Location: Hyderabad, India</p>
             </div>
@@ -295,7 +391,24 @@
     <footer>
       <p>© 2026 Personal Portfolio | Designed with Bootstrap</p>
     </footer>
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show-section");
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+        },
+      );
 
+      document.querySelectorAll(".hidden-section").forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
